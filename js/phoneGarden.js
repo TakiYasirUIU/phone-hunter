@@ -18,6 +18,8 @@ const searchPhone = () => {
 
 const displaySearchResult = phones => {
     const searchResult = document.getElementById('phone-search-result');
+    // clear phone display data 
+    searchResult.textContent = '';
     phones.forEach(phone =>{
         // console.log(phone);
         const div = document.createElement('div');
@@ -54,8 +56,10 @@ const loadPhoneDetail = phoneId => {
 
 // display single phone detail 
  const displayPhoneDetail = phone => {
-     console.log(phone);
+    //  console.log(phone);
     const phoneDetails = document.getElementById('phone-details');
+    // clear single phone details data 
+    phoneDetails.textContent = '';
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
