@@ -42,29 +42,48 @@ const displaySearchResult = phones => {
 // load phone details
 
 const loadPhoneDetail = phoneId => {
-    console.log(phoneId);
+    // console.log(phoneId);
     const url = ` https://openapi.programming-hero.com/api/phone/${phoneId}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => console.log(data.data));
+        .then(data => displayPhoneDetail(data.data));
 
 }
     
 
 
 // display single phone detail 
- /* const displayPhoneDetail = phone => {
+ const displayPhoneDetail = phone => {
      console.log(phone);
-    const mealDetails = document.getElementById('meal-details');
+    const phoneDetails = document.getElementById('phone-details');
     const div = document.createElement('div');
     div.classList.add('card');
     div.innerHTML = `
-    <img src="${phone.strMealThumb}" class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">${phone.strMeal}</h5>
-        <p class="card-text">${phone.strInstructions.slice(0, 150)}</p>
-        <a href="${phone.strYoutube}" class="btn btn-primary">Go somewhere</a>
+    <img src="${phone.image}" class="card-img-top w-50 detail-image-margin" alt="...">
+    <div class="card-body text-center">
+        <h3 class="card-title">phone Name: ${phone.name}</h3>
+        <h5 class="card-title">release: ${phone.releaseDate}</h5>
+        
+        <h4 class ="mt-2 text-decoration-underline">Main Features :</h4>
+        <div class= "text-start feature-margin-left mb-2">
+        <p class="card-text">Storage: ${phone.mainFeatures.storage}</p>
+        <p class="card-text">Display: ${phone.mainFeatures.displaySize}</p>
+        <p class="card-text">Chipset: ${phone.mainFeatures.chipSet}</p>
+        <p class="card-text"> Memory: ${phone.mainFeatures.memory}</p>
+        <p class="card-text">Sensors: ${phone.mainFeatures.sensors}</p>
+        </div>
+        
+        <h4 class ="mt-2 text-decoration-underline">Others :</h4>
+        <div class= "text-start feature-margin-left mb-2" >
+        <p class="card-text">Bluetooth: ${phone.others.Bluetooth}</p>
+        <p class="card-text">  GPS: ${phone.others.GPS}</p>
+        <p class="card-text">  NFC: ${phone.others.NFC}</p>
+        <p class="card-text">Radio: ${phone.others.Radio}</p>
+        <p class="card-text">  USB: ${phone.others.USB}</p>
+        <p class="card-text">  WLAN: ${phone.others.WLAN}</p>
+        </div>
+        
     </div>
     `;
-    mealDetails.appendChild(div);
-} */
+    phoneDetails.appendChild(div);
+ }
