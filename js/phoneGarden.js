@@ -19,7 +19,7 @@ const searchPhone = () => {
 const displaySearchResult = phones => {
     const searchResult = document.getElementById('phone-search-result');
     phones.forEach(phone =>{
-        console.log(phone);
+        // console.log(phone);
         const div = document.createElement('div');
         div.classList.add('col');
             div.innerHTML=`
@@ -28,7 +28,7 @@ const displaySearchResult = phones => {
             <div class="card-body text-center">
                 <h5 class="card-title mt-3">Phone Name: ${phone.phone_name}</h5>
                 <p class="card-text">Brand : ${phone.brand}</p>
-                <a href="" class="btn btn-primary">See Details</a>
+                <a onclick="loadPhoneDetail('${phone.slug}')" class="btn btn-primary">See Details</a>
     </div>
             </div>
         </div>
@@ -37,4 +37,11 @@ const displaySearchResult = phones => {
         
     })
 
+}
+
+// load phone details
+
+const loadPhoneDetail = phoneId => {
+    console.log(phoneId);
+    
 }
