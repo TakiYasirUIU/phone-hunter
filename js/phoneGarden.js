@@ -18,6 +18,9 @@ const searchPhone = () => {
 
 const displaySearchResult = phones => {
     const searchResult = document.getElementById('phone-search-result');
+    const phoneDetailsClear = document.getElementById('phone-details');
+    // clear single phone details data 
+    phoneDetailsClear.textContent = '';
     // clear phone display data 
     searchResult.textContent = '';
     phones.forEach(phone =>{
