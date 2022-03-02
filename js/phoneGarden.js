@@ -2,6 +2,15 @@
 const searchPhone = () => {
     const searchField = document.getElementById('phone-search-field');
     const searchText = searchField.value ;
+    // error handling 
+    const errorHandlingNoData = document.getElementById('error-nodata');
+    if(searchText == 0){
+        errorHandlingNoData.style.display = 'block';
+    }
+    else{
+        errorHandlingNoData.style.display = 'none';
+
+    }
     // console.log(searchText);
     searchField.value = '';
     const url = ` https://openapi.programming-hero.com/api/phones?search=${searchText}`;
@@ -19,10 +28,21 @@ const searchPhone = () => {
 const displaySearchResult = phones => {
     const searchResult = document.getElementById('phone-search-result');
     const phoneDetailsClear = document.getElementById('phone-details');
+
     // clear single phone details data 
     phoneDetailsClear.textContent = '';
     // clear phone display data 
     searchResult.textContent = '';
+    
+    // error handling phones 
+    const errorHandlingNoData = document.getElementById('error-nodata');
+    if(phones.length == 0){
+        errorHandlingNoData.style.display = 'block';
+    }
+    else{
+        errorHandlingNoData.style.display = 'none';
+
+    }
     phones.forEach(phone =>{
         // console.log(phone);
         const div = document.createElement('div');

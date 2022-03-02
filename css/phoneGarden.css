@@ -6,3 +6,12 @@
 .detail-image-margin{
     margin-left: 25%;
 }
+.error{
+    color: red;
+    font-weight: 700;
+    display:none ;
+}
+
+.error-nodata-section{
+    margin-left: 30%;
+}
